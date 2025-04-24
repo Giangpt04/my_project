@@ -16,7 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete"])) {
     header("Location: student.php");
     exit;
 }
-
+// Xoá toàn bộ
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["clear"])) {
+  $_SESSION["students"] = [];
+  header("Location: student.php");
+  exit;
+}
 // Thêm sinh viên
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["name"], $_POST["mssv"])) {
     $name = trim($_POST["name"]);
